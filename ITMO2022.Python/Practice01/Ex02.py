@@ -1,4 +1,6 @@
 from audioop import reverse
+from itertools import count
+from operator import index
 from os import remove
 
 from numpy import insert, append, sort
@@ -102,4 +104,47 @@ print(list1)
 list1.pop()
 print(list1)
 
-#
+#Сортировка элементов списка
+
+list1.sort(reverse=True)
+print(list1)
+
+list2 = [3,5,6,2,33,6,11]
+lis = sorted(list2)
+print(list2)
+print(lis)
+
+#Кортежи
+
+# dir(tuple)
+# help(index)
+# help(count)
+seq = (2,8,23,97,92,44,17,39,11,12)
+print(seq.count(8))
+print(seq.index(44))
+listseq = list(seq)
+print(type(listseq))
+
+#Словари
+
+D = {"food": "Apple", "quantity": 4, "color": "Red"}
+D['quantity'] += 10
+print(D['food'])
+print(D['quantity'])
+# dp = {
+#     "name" : input("Введите имя: "),
+#     "age" : input("Введите возраст: ")
+# }
+# print(dp)
+
+# Вложенность хранения данных
+
+rec = {'name': {'firstname': 'Bob', 'lastname': 'Smith'}, 'job': ['dev', 'mgr'], 'age': 25}
+
+print(rec["name"]["firstname"] + " " + rec["name"]["lastname"])
+print(rec["name"]["firstname"])
+print(rec["job"])
+
+rec['job'].append('janitor')
+print(rec)
+
