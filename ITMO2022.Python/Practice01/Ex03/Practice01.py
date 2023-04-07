@@ -12,7 +12,7 @@ nvar = float(input("Введите коэффициент замедления �
 print("{:.2f}".format(nvar))
 theta1 = float(input("Введите направление движения спасателя по песку, theta1 (градусы) => "))
 print("{:.3f}".format(theta1))
-x = d1var * 3 * math.tan(math.pi / 180)
+x = d1var * 3 * math.tan(math.radians(theta1))
 l1 = math.sqrt(x ** 2 + (d1var * 3) ** 2)
 l2 = math.sqrt((hvar - x) ** 2 + d2var ** 2)
 t = 1 / (vsand * 5280 / 3600) * (l1 + nvar * l2)
