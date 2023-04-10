@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import scipy as scipy
 
 
 def create_matrix_int(max_val, matrix_size_l, matrix_size_m):
@@ -20,10 +21,3 @@ def load_matrix(path_to_file):
     matrix = np.loadtxt(file_name, delimiter=",")
     file_name.close()
     return matrix
-
-# def python_dgemm_algo(n, a, b, c):
-#     for idx_i in range(n):
-#         for idx_j in range(n):
-#             c[idx_i + idx_j * n] = 0
-#             for idx_k in range(n):
-#                 c[idx_i + idx_j * n] += a[idx_i + idx_k * n] * b[idx_k + idx_j * n]
