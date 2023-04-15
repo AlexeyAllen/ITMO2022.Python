@@ -29,13 +29,13 @@ betta = float(input("Введите коэффициент betta => "))
 time_lst = [time() * 1000]
 matrix_d_int = dgemm_calcs(matrix_a_int_loaded, matrix_b_int_loaded, matrix_c_int_loaded, alpha, betta)
 time_lst.append(time() * 1000)
-time_median_value = get_statistics(time_lst, statistics_path_int)
+time_median_value_python = get_statistics(time_lst, statistics_path_int)
 save_matrix_to_csv(matrix_d_int, file_path_matrix_d_int)
-graphics_create(time_median_value)
+graphics_create(time_median_value_python)
 
 time_lst = [time() * 1000]
 matrix_d_float = dgemm_calcs(matrix_a_float_loaded, matrix_b_float_loaded, matrix_c_float_loaded, alpha, betta)
 time_lst.append(time() * 1000)
-time_median_value = get_statistics(time_lst, statistics_path_float)
+time_median_value_python = get_statistics(time_lst, statistics_path_float)
 save_matrix_to_csv(matrix_d_float, file_path_matrix_d_float)
-graphics_create(time_median_value)
+graphics_create(time_median_value_python)
