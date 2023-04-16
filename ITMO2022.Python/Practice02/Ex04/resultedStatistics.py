@@ -1,4 +1,4 @@
-from Practice02.Ex04.functions import load_matrix, dgemm_calcs, save_matrix_to_csv, get_statistics
+from Practice02.Ex04.functions import load_matrix, dgemm_calcs, save_matrix_to_csv, get_statistics, threaded_calc
 from time import time
 from Practice02.Ex04.functions import graphics_create
 
@@ -26,6 +26,8 @@ matrix_c_float_loaded = load_matrix(file_path_matrix_c_float)
 alpha = float(input("Введите коэффициент alpha => "))
 betta = float(input("Введите коэффициент betta => "))
 
+# Matrices multiplication with a single thread
+
 time_lst = [time() * 1000]
 matrix_d_int = dgemm_calcs(matrix_a_int_loaded, matrix_b_int_loaded, matrix_c_int_loaded, alpha, betta)
 time_lst.append(time() * 1000)
@@ -35,6 +37,23 @@ graphics_create(time_median_value_python)
 
 time_lst = [time() * 1000]
 matrix_d_float = dgemm_calcs(matrix_a_float_loaded, matrix_b_float_loaded, matrix_c_float_loaded, alpha, betta)
+time_lst.append(time() * 1000)
+time_median_value_python = get_statistics(time_lst, statistics_path_float)
+save_matrix_to_csv(matrix_d_float, file_path_matrix_d_float)
+graphics_create(time_median_value_python)
+
+
+# Matrices multiplication with a multithreading
+
+time_lst = [time() * 1000]
+matrix_d_int = threaded_calc(matrix_a_float_loaded, matrix_b_float_loaded, matrix_c_float_loaded, alpha, betta)
+time_lst.append(time() * 1000)
+time_median_value_python = get_statistics(time_lst, statistics_path_int)
+save_matrix_to_csv(matrix_d_int, file_path_matrix_d_int)
+graphics_create(time_median_value_python)
+
+time_lst = [time() * 1000]
+matrix_d_float = threaded_calc(matrix_a_float_loaded, matrix_b_float_loaded, matrix_c_float_loaded, alpha, betta)
 time_lst.append(time() * 1000)
 time_median_value_python = get_statistics(time_lst, statistics_path_float)
 save_matrix_to_csv(matrix_d_float, file_path_matrix_d_float)

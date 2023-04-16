@@ -2,6 +2,12 @@ import numpy as np
 import pandas as pd
 import statistics
 import matplotlib.pyplot as plt
+from threading import Thread
+
+# MAX_THREAD_1 = 1
+# MAX_THREAD_2 = 2
+MAX_THREAD_4 = 4
+# MAX_THREAD_16 = 16
 
 
 def create_matrix_int(max_val, matrix_size_l, matrix_size_m):
@@ -61,6 +67,15 @@ def dgemm_calcs(matrix_a, matrix_b, matrix_c, alpha, betta):
     return matrix_a_b_alpha_added_matrix_c_betta
 
 
+def threaded_calc(matrix_a, matrix_b, matrix_c, alpha, betta):
+    thread = list(range(MAX_THREAD_4))
+    for i in range(MAX_THREAD_4):
+        thread[i] = Thread(target=dgemm_calcs, args=(matrix_a, matrix_b, matrix_c, alpha, betta))
+        thread[i].start()
+    for i in range(MAX_THREAD_4):
+        thread[i].join()
+
+
 def get_statistics(time_lst, path_to_file):
     time_range = []
     for idx in range(1, len(time_lst)):
@@ -79,6 +94,7 @@ def get_statistics(time_lst, path_to_file):
 
 def graphics_create(time_median_value):
     final_stat = [time_median_value, 300, 400]
+
     # money = [1.5e5, 2.5e6, 5.5e6, 2.0e7]
 
     def axis_format(x, pos):
