@@ -93,7 +93,7 @@ def get_statistics(time_lst, path_to_file):
 
 
 def graphics_create(time_median_value):
-    final_stat = [time_median_value, 300, 400]
+    final_stat = [time_median_value, 320, 400]
 
     # money = [1.5e5, 2.5e6, 5.5e6, 2.0e7]
 
