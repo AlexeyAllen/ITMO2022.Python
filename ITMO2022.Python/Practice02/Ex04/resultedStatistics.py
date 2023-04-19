@@ -42,7 +42,6 @@ time_median_value_python = get_statistics(time_lst, statistics_path_float)
 save_matrix_to_csv(matrix_d_float, file_path_matrix_d_float)
 graphics_create(time_median_value_python)
 
-
 # Matrices multiplication with a multithreading
 
 time_lst = [time() * 1000]
