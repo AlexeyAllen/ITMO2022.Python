@@ -1,5 +1,10 @@
-from Practice02.Ex04.functions import create_matrix_int, save_matrix_to_csv, load_matrix, dgemm_calcs, \
-    create_matrix_float
+# from Practice02.Ex04.functions import create_matrix_int, save_matrix_to_csv, load_matrix, dgemm_calcs, \
+#     create_matrix_float
+
+import sys
+sys.path.append(r'..\Ex04')
+import functions
+from functions import create_matrix_int, save_matrix_to_csv, load_matrix, dgemm_calcs,create_matrix_float
 
 file_path_matrix_a_int = "dataFolder/matrix_a_int.csv"
 file_path_matrix_b_int = "dataFolder/matrix_b_int.csv"

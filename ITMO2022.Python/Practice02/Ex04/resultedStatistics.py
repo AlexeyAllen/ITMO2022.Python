@@ -1,6 +1,11 @@
-from Practice02.Ex04.functions import load_matrix, dgemm_calcs, save_matrix_to_csv, get_statistics, threaded_calc
+# from Practice02.Ex04.functions import load_matrix, dgemm_calcs, save_matrix_to_csv, get_statistics, threaded_calc
 from time import time
-from Practice02.Ex04.functions import graphics_create
+# from Practice02.Ex04.functions import graphics_create
+
+import sys
+sys.path.append(r'..\Ex04')
+import functions
+from functions import load_matrix, dgemm_calcs, save_matrix_to_csv, get_statistics, threaded_calc, graphics_create
 
 file_path_matrix_a_int = "dataFolder/matrix_a_int.csv"
 file_path_matrix_b_int = "dataFolder/matrix_b_int.csv"

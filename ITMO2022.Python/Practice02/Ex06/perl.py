@@ -32,7 +32,7 @@ def get_city_state(city, state):
     selected_state = ""
 
     for line in zip_codes:
-        if line[3] == city and line[4] == state:
+        if line[3].lower() == city and line[4].lower() == state:
             selected_city = line[3]
             selected_state = line[4]
             zips.append(line[0])
@@ -74,7 +74,11 @@ def main():
         if input_data == "loc":
             try:
                 zip = int(input("Enter a ZIP Code to lookup =>"))
-                location_data = zip_codes[zip]
+                for idx in zip_codes:
+                    idx_zip = int(idx[0])
+                    if idx_zip == zip:
+                        location_data = idx
+
                 loc_lat = deg_lat_convert(location_data[1])
                 loc_long = deg_long_convert(location_data[2])
                 print(f"Zip code {location_data[0]} is in {location_data[3]}, {location_data[4]}, {location_data[5]},"
@@ -84,8 +88,8 @@ def main():
 
         if input_data == "zip":
             try:
-                city = input("Enter a city name to lookup =>")
-                state = input("Enter a state name to lookup =>")
+                city = input("Enter a city name to lookup =>").lower()
+                state = input("Enter a state name to lookup =>").lower()
                 print(f"The following ZIP Code(s) found for {get_city_state(city, state)}")
             except:
                 print("Invalid or unknown city or state")
